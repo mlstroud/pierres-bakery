@@ -6,27 +6,36 @@ namespace Bakery.Models
   {
     public string Name { get; set; }
     public double Cost { get; set; }
-    public static List<Bread> purchasedItems;
+    private static List<Bread> _purchasedItems;
 
     public Bread(string name, double cost)
     {
       Name = name;
       Cost = cost;
-      purchasedItems = new List<Bread>();
+      _purchasedItems = new List<Bread>();
+    }
+
+    public static int GetPurchasedItemsCount()
+    {
+      return _purchasedItems.Count;
+    }
+
+    public static List<Bread> GetPurchasedItems()
+    {
+      return _purchasedItems;
     }
 
     public void Purchase()
     {
-      purchasedItems.Add(this);
+      _purchasedItems.Add(this);
     }
 
     public static double CalculatePurchaseCost()
     {
-      int totalItems = 0;
       double currentTotal = 0;
       int itemCounter = 1;
 
-      foreach (Bread item in purchasedItems)
+      foreach (Bread item in _purchasedItems)
       {
         if (itemCounter <= 2)
         {
@@ -47,23 +56,33 @@ namespace Bakery.Models
   {
     public string Name { get; set; }
     public double Cost { get; set; }
-    public static List<Pastry> purchasedItems;
+    private static List<Pastry> _purchasedItems;
 
     public Pastry(string name, double cost)
     {
       Name = name;
       Cost = cost;
-      purchasedItems = new List<Pastry>();
+      _purchasedItems = new List<Pastry>();
+    }
+
+    public static int GetPurchasedItemsCount()
+    {
+      return _purchasedItems.Count;
+    }
+
+    public static List<Pastry> GetPurchasedItems()
+    {
+      return _purchasedItems;
     }
 
     public void Purchase()
     {
-      purchasedItems.Add(this);
+      _purchasedItems.Add(this);
     }
 
     public static double CalculatePurchaseCost()
     {
-      int totalItems = purchasedItems.Count;
+      int totalItems = _purchasedItems.Count;
       double currentTotal = 0;
 
       while (totalItems > 0)
