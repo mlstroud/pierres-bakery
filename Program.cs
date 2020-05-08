@@ -14,24 +14,44 @@ namespace Bakery
       OpenStore();
       Welcome();
       DisplayInventory();
+      PromptCustomer();
+    }
 
-      foreach (Bread item in breadInventory)
+    public static void PromptCustomer()
+    {
+      bool finished = false;
+      string userInput;
+
+      while (!finished)
       {
-        item.Purchase();
+        Console.WriteLine("Enter an item # to purchase it, or type done to finish.");
+        userInput = Console.ReadLine();
+
+        if (int.TryParse(userInput, out int orderItem))
+        {
+          if (orderItem > breadInventory.Count)
+          {
+            pastryInventory[(orderItem - breadInventory.Count) - 1].Purchase();
+          }
+          else
+          {
+            breadInventory[orderItem - 1].Purchase();
+          }
+        }
+        else
+        {
+          if (userInput == "done")
+          {
+            finished = true;
+            Console.WriteLine("Thank you for your business.");
+            Checkout();
+          }
+          else
+          {
+            Console.WriteLine("Sorry, that wasn't a valid option.");
+          }
+        }
       }
-
-      foreach (Pastry item in pastryInventory)
-      {
-        item.Purchase();
-      }
-
-      pastryInventory[0].Purchase();
-      pastryInventory[0].Purchase();
-      pastryInventory[0].Purchase();
-      // Console.WriteLine("Total Cost: " + Pastry.CalculatePurchaseCost());
-      // Console.WriteLine("Total items: " + Pastry.purchasedItems.Count);
-
-      Checkout();
     }
 
     public static void Checkout()
