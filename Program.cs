@@ -13,7 +13,6 @@ namespace Bakery
     {
       OpenStore();
       Welcome();
-      DisplayInventory();
       PromptCustomer();
     }
 
@@ -24,6 +23,7 @@ namespace Bakery
 
       while (!finished)
       {
+        DisplayInventory();
         Console.WriteLine("Enter an item # to purchase it, or type done to finish.");
         userInput = Console.ReadLine();
 
@@ -87,6 +87,9 @@ namespace Bakery
     public static void DisplayInventory()
     {
       int itemNumber = 1;
+
+      Console.WriteLine("------------------------------------------------------");
+
       for (int i = 0; i < breadInventory.Count; i++)
       {
         Console.WriteLine(itemNumber + ". " + breadInventory[i].Name + " - $" + breadInventory[i].Cost);
@@ -134,7 +137,7 @@ namespace Bakery
     public static void Welcome()
     {
       Console.WriteLine("Welcome to Pierre's Bakery. How can we help you today?");
-      Console.WriteLine("------------------------------------------------------");
+
     }
   }
 }
