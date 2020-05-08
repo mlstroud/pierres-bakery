@@ -79,7 +79,14 @@ namespace Bakery
         }
 
         Console.WriteLine("\nSubtotal - $" + normalCost);
-        Console.WriteLine("Total - $" + totalOrderCost);
+        if (totalOrderCost < normalCost)
+        {
+          Console.WriteLine("Total - $ " + totalOrderCost + ". You saved $" + (normalCost - totalOrderCost) + ".");
+        }
+        else
+        {
+          Console.WriteLine("Total - $" + totalOrderCost);
+        }
       }
     }
 
@@ -94,7 +101,6 @@ namespace Bakery
         Console.WriteLine(itemNumber + ". " + breadInventory[i].Name + " - $" + breadInventory[i].Cost);
         itemNumber++;
       }
-      Console.Write("\n");
       for (int i = 0; i < pastryInventory.Count; i++)
       {
         Console.WriteLine(itemNumber + ". " + pastryInventory[i].Name + " - $" + pastryInventory[i].Cost);
