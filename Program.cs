@@ -137,7 +137,6 @@ namespace Bakery
     public static void Welcome()
     {
       Console.WriteLine("Welcome to Pierre's Bakery. How can we help you today?");
-
     }
   }
 }
