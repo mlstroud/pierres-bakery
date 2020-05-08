@@ -33,6 +33,7 @@ namespace Bakery
 
         if (int.TryParse(userInput, out int orderItem))
         {
+          Console.Clear();
           if (orderItem < 1 || orderItem > (breadInventory.Count + pastryInventory.Count))
           {
             Console.WriteLine("Sorry, that wasn't a valid option.");
@@ -51,11 +52,13 @@ namespace Bakery
           if (userInput.ToLower() == "done")
           {
             finished = true;
+            Console.Clear();
             Console.WriteLine("Thank you for your business.");
             Checkout();
           }
           else
           {
+            Console.Clear();
             Console.WriteLine("Sorry, that wasn't a valid option.");
           }
         }
