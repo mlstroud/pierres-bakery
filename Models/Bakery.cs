@@ -63,11 +63,22 @@ namespace Bakery.Models
 
     public static double CalculatePurchaseCost()
     {
-      int totalItems = 0;
+      int totalItems = purchasedItems.Count;
       double currentTotal = 0;
-      int itemCounter = 1;
 
-
+      while (totalItems > 0)
+      {
+        if (totalItems >= 3)
+        {
+          totalItems -= 3;
+          currentTotal += 5;
+        }
+        else
+        {
+          totalItems--;
+          currentTotal += 2;
+        }
+      }
 
       return currentTotal;
     }
