@@ -15,6 +15,11 @@ namespace Bakery
       Welcome();
       DisplayInventory();
 
+      foreach (Bread item in breadInventory)
+      {
+        item.Purchase();
+      }
+
       foreach (Pastry item in pastryInventory)
       {
         item.Purchase();
@@ -23,13 +28,37 @@ namespace Bakery
       pastryInventory[0].Purchase();
       pastryInventory[0].Purchase();
       pastryInventory[0].Purchase();
-      Console.WriteLine("Total Cost: " + Pastry.CalculatePurchaseCost());
-      Console.WriteLine("Total items: " + Pastry.purchasedItems.Count);
+      // Console.WriteLine("Total Cost: " + Pastry.CalculatePurchaseCost());
+      // Console.WriteLine("Total items: " + Pastry.purchasedItems.Count);
+
+      Checkout();
     }
 
-    public static void GetOrder()
+    public static void Checkout()
     {
+      double totalOrderCost = Bread.CalculatePurchaseCost() + Pastry.CalculatePurchaseCost();
 
+      if (Bread.purchasedItems.Count == 0 && Pastry.purchasedItems.Count == 0)
+      {
+        Console.WriteLine("You did not purchase anything, see you next time.");
+      }
+      else
+      {
+        Console.WriteLine("Here are your items:");
+        Console.WriteLine("--------------------");
+
+        foreach (Bread item in Bread.purchasedItems)
+        {
+          Console.WriteLine(item.Name + " - $" + item.Cost);
+        }
+
+        foreach (Pastry item in Pastry.purchasedItems)
+        {
+          Console.WriteLine(item.Name + " - $" + item.Cost);
+        }
+
+        Console.WriteLine("Total - $" + totalOrderCost);
+      }
     }
 
     public static void DisplayInventory()
