@@ -5,10 +5,10 @@ namespace Bakery.Models
   public class Bread
   {
     public string Name { get; set; }
-    public double Cost { get; set; }
+    public int Cost { get; set; }
     private static List<Bread> _purchasedItems = new List<Bread>();
 
-    public Bread(string name, double cost)
+    public Bread(string name, int cost)
     {
       Name = name;
       Cost = cost;
@@ -29,9 +29,9 @@ namespace Bakery.Models
       _purchasedItems.Add(this);
     }
 
-    public static double CalculatePurchaseCost()
+    public static int CalculatePurchaseCost()
     {
-      double currentTotal = 0;
+      int currentTotal = 0;
       int itemCounter = 1;
 
       foreach (Bread item in _purchasedItems)
@@ -54,10 +54,10 @@ namespace Bakery.Models
   public class Pastry
   {
     public string Name { get; set; }
-    public double Cost { get; set; }
+    public int Cost { get; set; }
     private static List<Pastry> _purchasedItems = new List<Pastry>();
 
-    public Pastry(string name, double cost)
+    public Pastry(string name, int cost)
     {
       Name = name;
       Cost = cost;
@@ -78,10 +78,10 @@ namespace Bakery.Models
       _purchasedItems.Add(this);
     }
 
-    public static double CalculatePurchaseCost()
+    public static int CalculatePurchaseCost()
     {
       int totalItems = _purchasedItems.Count;
-      double currentTotal = 0;
+      int currentTotal = 0;
 
       while (totalItems > 0)
       {

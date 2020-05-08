@@ -56,8 +56,8 @@ namespace Bakery
 
     public static void Checkout()
     {
-      double totalOrderCost = Bread.CalculatePurchaseCost() + Pastry.CalculatePurchaseCost();
-      double normalCost = 0;
+      int totalOrderCost = Bread.CalculatePurchaseCost() + Pastry.CalculatePurchaseCost();
+      int normalCost = 0;
 
       if (Bread.GetPurchasedItemsCount() == 0 && Pastry.GetPurchasedItemsCount() == 0)
       {
@@ -114,9 +114,9 @@ namespace Bakery
 
     public static void BakeBread()
     {
-      Bread baguette = new Bread("Baguette", 5.00);
-      Bread brioche = new Bread("Brioche Ball", 5.00);
-      Bread ficelle = new Bread("Ficelle", 5.00);
+      Bread baguette = new Bread("Baguette", 5);
+      Bread brioche = new Bread("Brioche Ball", 5);
+      Bread ficelle = new Bread("Ficelle", 5);
 
       breadInventory.Add(baguette);
       breadInventory.Add(brioche);
@@ -125,9 +125,9 @@ namespace Bakery
 
     public static void BakePastries()
     {
-      Pastry bearClaw = new Pastry("Bear Claw", 2.00);
-      Pastry danish = new Pastry("Danishh", 2.00);
-      Pastry turnover = new Pastry("Turnover", 2.00);
+      Pastry bearClaw = new Pastry("Bear Claw", 2);
+      Pastry danish = new Pastry("Danishh", 2);
+      Pastry turnover = new Pastry("Turnover", 2);
 
       pastryInventory.Add(bearClaw);
       pastryInventory.Add(danish);
