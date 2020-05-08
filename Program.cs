@@ -136,6 +136,8 @@ namespace Bakery
     public static void Welcome()
     {
       Console.WriteLine("Welcome to Pierre's Bakery. How can we help you today?");
+      Console.WriteLine("SPECIAL: Buy two bread products and the third is free.");
+      Console.WriteLine("SPECIAL: Buy three pastries for $5.");
     }
   }
 }
