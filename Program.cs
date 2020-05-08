@@ -20,8 +20,10 @@ namespace Bakery
         item.Purchase();
       }
 
+      breadInventory[0].Purchase();
+      breadInventory[0].Purchase();
       Console.WriteLine("Total Cost: " + Bread.CalculatePurchaseCost());
-      Console.WriteLine("Total items: " + breadInventory.Count);
+      Console.WriteLine("Total items: " + Bread.purchasedItems.Count);
     }
 
     public static void GetOrder()
