@@ -123,24 +123,22 @@ namespace Bakery
 
     public static void BakeBread()
     {
-      Bread baguette = new Bread("Baguette", 5);
-      Bread brioche = new Bread("Brioche Ball", 5);
-      Bread ficelle = new Bread("Ficelle", 5);
+      List<Bread> bakedBread = Bread.Bake();
 
-      breadInventory.Add(baguette);
-      breadInventory.Add(brioche);
-      breadInventory.Add(ficelle);
+      foreach (Bread item in bakedBread)
+      {
+        breadInventory.Add(item);
+      }
     }
 
     public static void BakePastries()
     {
-      Pastry bearClaw = new Pastry("Bear Claw", 2);
-      Pastry danish = new Pastry("Danishh", 2);
-      Pastry turnover = new Pastry("Turnover", 2);
+      List<Pastry> bakedPastry = Pastry.Bake();
 
-      pastryInventory.Add(bearClaw);
-      pastryInventory.Add(danish);
-      pastryInventory.Add(turnover);
+      foreach (Pastry item in bakedPastry)
+      {
+        pastryInventory.Add(item);
+      }
     }
 
     public static void Welcome()
