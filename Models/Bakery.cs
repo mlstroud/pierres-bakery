@@ -2,24 +2,19 @@ using System.Collections.Generic;
 
 namespace Bakery.Models
 {
-  public class Bread
+  public class BakedItem
   {
     public string Name { get; set; }
     public int Cost { get; set; }
-    private static List<Bread> _purchasedItems = new List<Bread>();
-
-    public Bread(string name, int cost)
-    {
-      Name = name;
-      Cost = cost;
-    }
+    public string ItemType { get; set; }
+    protected static List<BakedItem> _purchasedItems = new List<BakedItem>();
 
     public static int GetPurchasedItemsCount()
     {
       return _purchasedItems.Count;
     }
 
-    public static List<Bread> GetPurchasedItems()
+    public static List<BakedItem> GetPurchasedItems()
     {
       return _purchasedItems;
     }
@@ -27,6 +22,16 @@ namespace Bakery.Models
     public void Purchase()
     {
       _purchasedItems.Add(this);
+    }
+  }
+
+  public class Bread : BakedItem
+  {
+    public Bread(string name, int cost)
+    {
+      Name = name;
+      Cost = cost;
+      ItemType = "bread";
     }
 
     public static int CalculatePurchaseCost()
@@ -34,16 +39,19 @@ namespace Bakery.Models
       int currentTotal = 0;
       int itemCounter = 1;
 
-      foreach (Bread item in _purchasedItems)
+      foreach (BakedItem item in _purchasedItems)
       {
-        if (itemCounter <= 2)
+        if (item.ItemType == "bread")
         {
-          currentTotal += item.Cost;
-          itemCounter++;
-        }
-        else
-        {
-          itemCounter = 1;
+          if (itemCounter <= 2)
+          {
+            currentTotal += item.Cost;
+            itemCounter++;
+          }
+          else
+          {
+            itemCounter = 1;
+          }
         }
       }
 
@@ -51,37 +59,27 @@ namespace Bakery.Models
     }
   }
 
-  public class Pastry
+  public class Pastry : BakedItem
   {
-    public string Name { get; set; }
-    public int Cost { get; set; }
-    private static List<Pastry> _purchasedItems = new List<Pastry>();
-
     public Pastry(string name, int cost)
     {
       Name = name;
       Cost = cost;
-    }
-
-    public static int GetPurchasedItemsCount()
-    {
-      return _purchasedItems.Count;
-    }
-
-    public static List<Pastry> GetPurchasedItems()
-    {
-      return _purchasedItems;
-    }
-
-    public void Purchase()
-    {
-      _purchasedItems.Add(this);
+      ItemType = "pastry";
     }
 
     public static int CalculatePurchaseCost()
     {
-      int totalItems = _purchasedItems.Count;
+      int totalItems = 0;
       int currentTotal = 0;
+
+      for (int i = 0; i < _purchasedItems.Count; i++)
+      {
+        if (_purchasedItems[i].ItemType == "pastry")
+        {
+          totalItems++;
+        }
+      }
 
       while (totalItems > 0)
       {
