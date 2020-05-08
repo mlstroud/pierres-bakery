@@ -6,13 +6,44 @@ namespace Bakery
 {
   public class Program
   {
-    List<Bread> breadInventory;
-    List<Pastry> pastryInventory;
+    public static List<Bread> breadInventory;
+    public static List<Pastry> pastryInventory;
 
     public static void Main()
     {
       OpenStore();
       Welcome();
+      DisplayInventory();
+
+      foreach (Bread item in breadInventory)
+      {
+        item.Purchase();
+      }
+
+      Console.WriteLine("Total Cost: " + Bread.CalculatePurchaseCost());
+      Console.WriteLine("Total items: " + breadInventory.Count);
+    }
+
+    public static void GetOrder()
+    {
+
+    }
+
+    public static void DisplayInventory()
+    {
+      int itemNumber = 1;
+      for (int i = 0; i < breadInventory.Count; i++)
+      {
+        Console.WriteLine(itemNumber + ". " + breadInventory[i].Name + " - $" + breadInventory[i].Cost);
+        itemNumber++;
+      }
+      Console.Write("\n");
+      for (int i = 0; i < pastryInventory.Count; i++)
+      {
+        Console.WriteLine(itemNumber + ". " + pastryInventory[i].Name + " - $" + pastryInventory[i].Cost);
+        itemNumber++;
+      }
+      Console.Write("\n");
     }
 
     public static void OpenStore()
@@ -25,9 +56,9 @@ namespace Bakery
 
     public static void BakeBread()
     {
-      Bread baguette = new Bread("Baguette", 4.99);
-      Bread brioche = new Bread("Brioche Ball", 3.99);
-      Bread ficelle = new Bread("Ficelle", 5.99);
+      Bread baguette = new Bread("Baguette", 5.00);
+      Bread brioche = new Bread("Brioche Ball", 5.00);
+      Bread ficelle = new Bread("Ficelle", 5.00);
 
       breadInventory.Add(baguette);
       breadInventory.Add(brioche);
@@ -36,9 +67,9 @@ namespace Bakery
 
     public static void BakePastries()
     {
-      Pastry bearClaw = new Pastry("Bear Claw", 3.99);
-      Pastry danish = new Pastry("Danishh", 4.99);
-      Pastry turnover = new Pastry("Turnover", 5.99);
+      Pastry bearClaw = new Pastry("Bear Claw", 2.00);
+      Pastry danish = new Pastry("Danishh", 2.00);
+      Pastry turnover = new Pastry("Turnover", 2.00);
 
       pastryInventory.Add(bearClaw);
       pastryInventory.Add(danish);
