@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+
 namespace Bakery.Models
 {
   public class Bread : BakedItem
@@ -7,6 +9,15 @@ namespace Bakery.Models
       Name = name;
       Cost = cost;
       ItemType = "bread";
+    }
+
+    public static List<Bread> Bake()
+    {
+      Bread baguette = new Bread("Baguette", 5);
+      Bread brioche = new Bread("Brioche Ball", 5);
+      Bread ficelle = new Bread("Ficelle", 5);
+
+      return new List<Bread> { baguette, brioche, ficelle };
     }
 
     public static int CalculatePurchaseCost()
