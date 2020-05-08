@@ -15,16 +15,16 @@ namespace Bakery
       Welcome();
       DisplayInventory();
 
-      foreach (Bread item in breadInventory)
+      foreach (Pastry item in pastryInventory)
       {
         item.Purchase();
       }
 
-      breadInventory[0].Purchase();
-      breadInventory[0].Purchase();
-      breadInventory[0].Purchase();
-      Console.WriteLine("Total Cost: " + Bread.CalculatePurchaseCost());
-      Console.WriteLine("Total items: " + Bread.purchasedItems.Count);
+      pastryInventory[0].Purchase();
+      pastryInventory[0].Purchase();
+      pastryInventory[0].Purchase();
+      Console.WriteLine("Total Cost: " + Pastry.CalculatePurchaseCost());
+      Console.WriteLine("Total items: " + Pastry.purchasedItems.Count);
     }
 
     public static void GetOrder()
