@@ -37,6 +37,7 @@ namespace Bakery
     public static void Checkout()
     {
       double totalOrderCost = Bread.CalculatePurchaseCost() + Pastry.CalculatePurchaseCost();
+      double normalCost = 0;
 
       if (Bread.GetPurchasedItemsCount() == 0 && Pastry.GetPurchasedItemsCount() == 0)
       {
@@ -50,13 +51,15 @@ namespace Bakery
         foreach (Bread item in Bread.GetPurchasedItems())
         {
           Console.WriteLine(item.Name + " - $" + item.Cost);
+          normalCost += item.Cost;
         }
 
         foreach (Pastry item in Pastry.GetPurchasedItems())
         {
           Console.WriteLine(item.Name + " - $" + item.Cost);
+          normalCost += item.Cost;
         }
-
+        Console.WriteLine("\nSubtotal - $" + normalCost);
         Console.WriteLine("Total - $" + totalOrderCost);
       }
     }
