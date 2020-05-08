@@ -6,13 +6,12 @@ namespace Bakery.Models
   {
     public string Name { get; set; }
     public double Cost { get; set; }
-    private static List<Bread> _purchasedItems;
+    private static List<Bread> _purchasedItems = new List<Bread>();
 
     public Bread(string name, double cost)
     {
       Name = name;
       Cost = cost;
-      _purchasedItems = new List<Bread>();
     }
 
     public static int GetPurchasedItemsCount()
@@ -56,13 +55,12 @@ namespace Bakery.Models
   {
     public string Name { get; set; }
     public double Cost { get; set; }
-    private static List<Pastry> _purchasedItems;
+    private static List<Pastry> _purchasedItems = new List<Pastry>();
 
     public Pastry(string name, double cost)
     {
       Name = name;
       Cost = cost;
-      _purchasedItems = new List<Pastry>();
     }
 
     public static int GetPurchasedItemsCount()
