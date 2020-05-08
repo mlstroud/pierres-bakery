@@ -38,7 +38,7 @@ namespace Bakery
     {
       double totalOrderCost = Bread.CalculatePurchaseCost() + Pastry.CalculatePurchaseCost();
 
-      if (Bread.purchasedItems.Count == 0 && Pastry.purchasedItems.Count == 0)
+      if (Bread.GetPurchasedItemsCount() == 0 && Pastry.GetPurchasedItemsCount() == 0)
       {
         Console.WriteLine("You did not purchase anything, see you next time.");
       }
@@ -47,12 +47,12 @@ namespace Bakery
         Console.WriteLine("Here are your items:");
         Console.WriteLine("--------------------");
 
-        foreach (Bread item in Bread.purchasedItems)
+        foreach (Bread item in Bread.GetPurchasedItems())
         {
           Console.WriteLine(item.Name + " - $" + item.Cost);
         }
 
-        foreach (Pastry item in Pastry.purchasedItems)
+        foreach (Pastry item in Pastry.GetPurchasedItems())
         {
           Console.WriteLine(item.Name + " - $" + item.Cost);
         }
