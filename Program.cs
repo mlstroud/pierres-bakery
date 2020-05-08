@@ -44,7 +44,7 @@ namespace Bakery
         }
         else
         {
-          if (userInput == "done")
+          if (userInput.ToLower() == "done")
           {
             finished = true;
             Console.WriteLine("Thank you for your business.");
