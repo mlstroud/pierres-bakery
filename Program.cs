@@ -29,7 +29,11 @@ namespace Bakery
 
         if (int.TryParse(userInput, out int orderItem))
         {
-          if (orderItem > breadInventory.Count)
+          if (orderItem < 1 || orderItem > (breadInventory.Count + pastryInventory.Count))
+          {
+            Console.WriteLine("Sorry, that wasn't a valid option.");
+          }
+          else if (orderItem > breadInventory.Count)
           {
             pastryInventory[(orderItem - breadInventory.Count) - 1].Purchase();
           }
