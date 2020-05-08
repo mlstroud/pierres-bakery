@@ -14,9 +14,9 @@ namespace Bakery.Models
       int totalItems = 0;
       int currentTotal = 0;
 
-      for (int i = 0; i < _purchasedItems.Count; i++)
+      foreach (BakedItem item in _purchasedItems)
       {
-        if (_purchasedItems[i].ItemType == "pastry")
+        if (item.ItemType == "pastry")
         {
           totalItems++;
         }
