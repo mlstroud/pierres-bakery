@@ -24,6 +24,10 @@ namespace Bakery
       while (!finished)
       {
         DisplayInventory();
+        if (BakedItem.GetPurchasedItemsCount() > 0)
+        {
+          Console.WriteLine("You currently have " + BakedItem.GetPurchasedItemsCount() + " items in your cart.");
+        }
         Console.WriteLine("Enter an item # to purchase it, or type done to finish.");
         userInput = Console.ReadLine();
 
